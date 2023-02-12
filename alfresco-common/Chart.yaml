@@ -18,6 +18,7 @@ description: A Helm chart for deploying Alfresco Content Services
 
 dependencies:
   - name: alfresco-common
+    alias: alfresco-common
     version: 0.3.0-SNAPSHOT
     repository: https://kubernetes-charts.alfresco.com/incubator
   - name: postgresql
