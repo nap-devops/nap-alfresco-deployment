@@ -19,6 +19,7 @@ description: A Helm chart for deploying Alfresco Content Services
 dependencies:
   - name: alfresco-common
     alias: alfresco-common
+    condition: alfresco-common.enabled
     version: 0.3.0-SNAPSHOT
     repository: https://kubernetes-charts.alfresco.com/incubator
   - name: postgresql
@@ -28,8 +29,7 @@ dependencies:
     condition: postgresql.enabled
   - name: postgresql
     version: 10.16.2
-    repository: >-
-      https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami/
+    repository: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami/
     alias: postgresql-syncservice
     condition: postgresql-syncservice.enabled
   # - name: common
