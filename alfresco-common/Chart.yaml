@@ -11,9 +11,8 @@
 #     condition: alfresco-common.enabled
 
 apiVersion: v2
-name: alfresco/alfresco-content-services-community
-version: 5.4.0
-appVersion: 5.17.1
+name: alfresco/alfresco-content-services
+version: 5.3.0
 description: A Helm chart for deploying Alfresco Content Services
 
 dependencies:
