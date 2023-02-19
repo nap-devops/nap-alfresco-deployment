@@ -1,16 +1,16 @@
 ---
 apiVersion: v2
 name: alfresco-content-services
-version: 5.4.0-SNAPSHOT
-appVersion: 7.4.0-M2
+version: 5.3.0
+# appVersion: 7.4.0-M2
 description: A Helm chart for deploying Alfresco Content Services
 
 sources:
   - https://github.com/Alfresco/acs-deployment
 dependencies:
   - name: alfresco-common
-    version: 1.0.0
-    repository: https://alfresco.github.io/alfresco-helm-charts/
+    version: 0.3.0
+    repository: https://kubernetes-charts.alfresco.com/stable
   - name: postgresql
     version: 10.16.2
     repository: >-
@@ -37,9 +37,10 @@ dependencies:
   # - name: activemq
   #   version: 1.1.1
   #   condition: activemq.enabled
-  # - name: alfresco-search
-  #   version: 1.2.0-SNAPSHOT
-  #   condition: alfresco-search.enabled
+  - name: alfresco-search
+    version: 1.0.3
+    repository: https://kubernetes-charts.alfresco.com/stable
+    condition: alfresco-search.enabled
   # - name: alfresco-elasticsearch-connector
   #   version: 0.3.0-SNAPSHOT
   #   condition: alfresco-elasticsearch-connector.enabled
