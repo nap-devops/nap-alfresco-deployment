@@ -10,6 +10,10 @@ dependencies:
     version: 0.3.0
     repository: https://kubernetes-charts.alfresco.com/stable
     condition: alfresco-common.enabled
+  - name: content-services
+    version: 5.4.0-M2
+    repository: https://kubernetes-charts.alfresco.com/stable
+    condition: content-services.enabled
 
   - name: postgresql
     version: 10.16.2
