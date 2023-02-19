@@ -9,8 +9,7 @@ dependencies:
 
   - name: alfresco-common
     version: 0.3.0
-    repository: https://kubernetes-charts.alfresco.com/stable
-    condition: alfresco-common.enabled
+    repository: https://alfresco.github.io/alfresco-helm-charts/
 
   - name: postgresql
     version: 10.16.2
