@@ -4,16 +4,16 @@ name: helm-alfresco-content-services
 version: 5.4.0-M2
 description: A Helm chart for deploying Alfresco Content Services
 
-dependencies:
+dependencies: []
 
   # - name: alfresco-common
   #   version: 0.3.0
   #   repository: https://kubernetes-charts.alfresco.com/stable
-  - name: alfresco-content-services
-    alias: content-services
-    version: 5.4.0-M2
-    repository: https://kubernetes-charts.alfresco.com/stable
-    condition: alfresco-content-services.enabled
+  # - name: alfresco-content-services
+  #   alias: content-services
+  #   version: 5.4.0-M2
+  #   repository: https://kubernetes-charts.alfresco.com/stable
+  #   condition: alfresco-content-services.enabled
 
   # - name: postgresql
   #   version: 10.16.2
