@@ -23,12 +23,12 @@ dependencies:
   #   alias: postgresql-syncservice
   #   condition: postgresql-syncservice.enabled
   - name: activemq
-    repository: https://kubernetes-charts.alfresco.com/stable
-    version: 1.1.1
+    # repository: https://kubernetes-charts.alfresco.com/stable
+    version: 2.3.0
     condition: activemq.enabled
   - name: alfresco-search
-    version: 1.0.3
-    repository: https://kubernetes-charts.alfresco.com/stable
+    version: 1.2.0
+    # repository: https://kubernetes-charts.alfresco.com/stable
     condition: alfresco-search.enabled
   # - name: alfresco-elasticsearch-connector
   #   version: 0.3.0-SNAPSHOT
