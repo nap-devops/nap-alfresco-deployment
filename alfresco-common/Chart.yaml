@@ -28,7 +28,7 @@ dependencies:
   #   condition: activemq.enabled
   - name: alfresco-search
     version: 1.0.3
-    # repository: https://kubernetes-charts.alfresco.com/stable
+    repository: https://kubernetes-charts.alfresco.com/stable
     condition: alfresco-search.enabled
   # - name: alfresco-elasticsearch-connector
   #   version: 0.3.0-SNAPSHOT
