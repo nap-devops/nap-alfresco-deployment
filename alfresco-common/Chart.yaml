@@ -5,8 +5,6 @@ version: 5.3.0
 # appVersion: 7.4.0-M2
 description: A Helm chart for deploying Alfresco Content Services
 
-sources:
-  - https://github.com/Alfresco/acs-deployment
 dependencies:
   - name: alfresco-common
     version: 0.3.0
@@ -22,21 +20,10 @@ dependencies:
       https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami/
     alias: postgresql-syncservice
     condition: postgresql-syncservice.enabled
-  - name: common
-    alias: alfresco-admin-app
-    repository: https://activiti.github.io/activiti-cloud-helm-charts
-    version: 7.7.0
-    condition: >-
-      alfresco-admin-app.enabled
-  - name: common
-    alias: alfresco-digital-workspace
-    repository: https://activiti.github.io/activiti-cloud-helm-charts
-    version: 7.7.0
-    condition: >-
-      alfresco-digital-workspace.enabled
-  # - name: activemq
-  #   version: 1.1.1
-  #   condition: activemq.enabled
+  - name: activemq
+    repository: ""
+    version: 2.2.0
+    condition: activemq.enabled
   - name: alfresco-search
     version: 1.0.3
     repository: https://kubernetes-charts.alfresco.com/stable
@@ -44,8 +31,6 @@ dependencies:
   # - name: alfresco-elasticsearch-connector
   #   version: 0.3.0-SNAPSHOT
   #   condition: alfresco-elasticsearch-connector.enabled
-  # - name: alfresco-sync-service
-  #   version: 3.2.0-SNAPSHOT
   # - name: elasticsearch
   #   alias: elasticsearch
   #   repository: https://helm.elastic.co
