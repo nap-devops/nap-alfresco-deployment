@@ -8,8 +8,8 @@ description: A Helm chart for deploying Alfresco Content Services
 dependencies:
 
   - name: alfresco-common
-    version: 0.3.0
-    # repository: https://kubernetes-charts.alfresco.com/stable
+    version: 1.0.0
+    repository: https://kubernetes-charts.alfresco.com/stable
     condition: alfresco-common.enabled
 
   - name: postgresql
