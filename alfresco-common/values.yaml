@@ -1,5 +1,12 @@
 # ACS Community values
 
+alfresco-common:
+  enabled: true 
+  edition: Community
+  image:
+    repository: alfresco/alfresco-content-repository-community
+    tag: 7.4.0-M2
+
 repository:
   edition: Community
   replicaCount: 1
