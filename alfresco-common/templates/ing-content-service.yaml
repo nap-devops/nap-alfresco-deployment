@@ -1,0 +1,63 @@
+---
+# Source: helm-alfresco-content-services/charts/alfresco-content-services/templates/ingress-ooi-service.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alfresco-alfresco-cs-ooi-service
+  labels:
+    chart: alfresco-content-services-5.0.1
+    app: alfresco-alfresco-cs-ooi-service
+    release: alfresco
+    component: ooiservice
+    heritage: Helm
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /ooi-service
+
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /ooi-service
+        backend:
+          serviceName: alfresco-alfresco-cs-ooi-service
+          servicePort: 80
+---
+# Source: helm-alfresco-content-services/charts/alfresco-content-services/templates/ingress-repository.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alfresco-alfresco-cs-repository
+  labels:
+    chart: alfresco-content-services-5.0.1
+    app: alfresco-alfresco-cs-repository
+    release: alfresco
+    component: repository
+    heritage: Helm
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-name: "alf_affinity_route"
+    nginx.ingress.kubernetes.io/session-cookie-hash: "sha1"
+    # Default file limit (1m) check, document(s) above this size will throw 413 (Request Entity Too Large) error
+    nginx.ingress.kubernetes.io/proxy-body-size: 5g
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      location ~ ^(/.*/service/api/solr/.*)$ {return 403;}
+      location ~ ^(/.*/s/api/solr/.*)$ {return 403;}
+      location ~ ^(/.*/wcservice/api/solr/.*)$ {return 403;}
+      location ~ ^(/.*/wcs/api/solr/.*)$ {return 403;}
+      location ~ ^(/.*/s/prometheus)$ {return 403;}
+
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: alfresco-alfresco-cs-repository
+          servicePort: 80
+      - path: /api-explorer
+        backend:
+          serviceName: alfresco-alfresco-cs-repository
+          servicePort: 80
+---

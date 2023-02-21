@@ -1,0 +1,34 @@
+---
+# Source: helm-alfresco-content-services/charts/alfresco-content-services/templates/ingress-share.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alfresco-alfresco-cs-share
+  labels:
+    chart: alfresco-content-services-5.0.1
+    app: alfresco-alfresco-cs-share
+    release: alfresco
+    component: share
+    heritage: Helm
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    # Default limit is 1m, document(s) above this size will throw 413 (Request Entity Too Large) error
+    nginx.ingress.kubernetes.io/proxy-body-size: 5g
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-name: "alfrescoShare"
+    nginx.ingress.kubernetes.io/session-cookie-path: "/share"
+    nginx.ingress.kubernetes.io/session-cookie-max-age: "604800"
+    nginx.ingress.kubernetes.io/session-cookie-expires: "604800"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      location ~ ^(/.*/proxy/.*/api/solr/.*)$ {return 403 ;}
+      location ~ ^(/.*/-default-/proxy/.*/api/.*)$ {return 403;}
+
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /share
+        backend:
+          serviceName: alfresco-alfresco-cs-share
+          servicePort: 80
+---
