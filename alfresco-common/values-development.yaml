@@ -1,16 +1,5 @@
 
 alfresco-content-services:
-# This is a YAML-formatted file.  Declare variables to be passed into your templates.
-
-# ACS will be created in a k8s cluster with a minimum of 16GB memory to split among below nodes:
-# 1 x repository, 1 x share, 1 x transformers (pdfrenderer, imagemagick, libreoffice, tika, misc) and 1 x postgresql
-
-  repository:
-    edition: Community
-    replicaCount: 1
-    image:
-      repository: alfresco/alfresco-content-repository-community
-
 
   global:
   # A shared secret is now required in order to authenticate connections between solr and repo (typically: tracking)
@@ -22,44 +11,3 @@ alfresco-content-services:
       auth: secret
     # -- Shared secret to authenticate repo/solr traffic
       sharedsecret: 2a8f67b03d37e153eac515f60df2258fdc764b4d5f17625b
-
-  pdfrenderer:
-    replicaCount: 1
-
-  imagemagick:
-    replicaCount: 1
-
-  libreoffice:
-    replicaCount: 1
-
-  tika:
-    replicaCount: 1
-
-  transformmisc:
-    replicaCount: 1
-
-
-  alfresco-search:
-    searchServicesImage:
-      repository: alfresco/alfresco-search-services
-
-# Disable features
-  alfresco-digital-workspace:
-    enabled: false
-  alfresco-sync-service:
-    syncservice:
-      enabled : false
-  postgresql-syncservice:
-    enabled: false
-  ai:
-    enabled: false
-  s3connector:
-    enabled: false
-  email:
-    server:
-      enabled: false
-    inbound:
-      enabled: false
-  imap:
-    server:
-      enabled: false
