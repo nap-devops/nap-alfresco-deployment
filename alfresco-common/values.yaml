@@ -21,7 +21,11 @@ alfresco-content-services:
 
   transformmisc:
     replicaCount: 1
-
+    
+  share:
+    replicaCount: 1
+    image:
+      repository: alfresco/alfresco-share
 
   alfresco-search:
     searchServicesImage:
