@@ -1,6 +1,4 @@
-
 alfresco-content-services:
-
   repository:
     edition: Community
     replicaCount: 1
@@ -21,22 +19,25 @@ alfresco-content-services:
 
   transformmisc:
     replicaCount: 1
-    
+
   share:
     replicaCount: 1
+
     image:
       repository: alfresco/alfresco-share
 
   alfresco-search:
     searchServicesImage:
       repository: alfresco/alfresco-search-services
-
-# Disable features
+  activemq:
+    strategy:
+      type: Recreate
+  # Disable features
   alfresco-digital-workspace:
     enabled: false
   alfresco-sync-service:
     syncservice:
-      enabled : false
+      enabled: false
   postgresql-syncservice:
     enabled: false
   ai:
