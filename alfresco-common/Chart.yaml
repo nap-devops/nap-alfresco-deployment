@@ -1,49 +1,16 @@
 ---
 apiVersion: v2
-name: helm-alfresco-content-services
-version: 5.0.1
-# appVersion: 7.0.0
+name: alfresco-content-services
+version: 5.3.0
 description: A Helm chart for deploying Alfresco Content Services
 
 dependencies: 
 
-    - name: alfresco-content-services
-      version: 5.0.1
-      repository: https://kubernetes-charts.alfresco.com/stable
-  # - name: alfresco-common
-  #   version: 0.3.0
-  #   repository: https://kubernetes-charts.alfresco.com/stable
-  # - name: alfresco-content-services
-  #   alias: content-services
-  #   version: 5.4.0-M2
-  #   repository: https://kubernetes-charts.alfresco.com/stable
-  #   condition: alfresco-content-services.enabled
-
-  # - name: postgresql
-  #   version: 10.16.2
-  #   repository: >-
-  #     https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami/
-  #   condition: postgresql.enabled
-  # - name: postgresql
-  #   version: 10.16.2
-  #   repository: >-
-  #     https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami/
-  #   alias: postgresql-syncservice
-  #   condition: postgresql-syncservice.enabled
-  # - name: activemq
-  #   repository: https://kubernetes-charts.alfresco.com/stable
-  #   version: 1.1.1
-  #   condition: activemq.enabled
-  # - name: alfresco-search
-  #   version: 1.0.3
-  #   repository: https://kubernetes-charts.alfresco.com/stable
-  #   condition: alfresco-search.enabled
-  # - name: alfresco-elasticsearch-connector
-  #   version: 0.3.0-SNAPSHOT
-  #   condition: alfresco-elasticsearch-connector.enabled
-  # - name: elasticsearch
-  #   alias: elasticsearch
-  #   repository: https://helm.elastic.co
-  #   version: 7.10.1
-  #   condition: elasticsearch.enabled
-icon: https://avatars0.githubusercontent.com/u/391127?s=200&v=4
+  - name: alfresco-common
+    version: 0.1.0
+    repository: https://kubernetes-charts.alfresco.com/stable
+  - name: postgresql
+    version: 10.16.2
+    repository: >-
+      https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami/
+    condition: postgresql.enabled
