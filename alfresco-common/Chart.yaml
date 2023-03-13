@@ -1,16 +1,16 @@
 ---
 apiVersion: v2
-name: alfresco-content-services
+name: alfresco-content-services-helm
 version: 5.3.0
 description: A Helm chart for deploying Alfresco Content Services
 
 dependencies: 
 
-  - name: alfresco-common
-    version: 0.1.0
+  - name: alfresco-content-services
+    version: 5.3.0
     repository: https://kubernetes-charts.alfresco.com/stable
-  - name: postgresql
-    version: 10.16.2
-    repository: >-
-      https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami/
-    condition: postgresql.enabled
+  # - name: postgresql
+  #   version: 10.16.2
+  #   repository: >-
+  #     https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami/
+  #   condition: postgresql.enabled
