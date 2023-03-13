@@ -4,9 +4,6 @@ alfresco-content-services:
     replicaCount: 1
     strategy:
       type: Recreate
-    spec:
-      strategy:
-        type: Recreate
     image:
       repository: alfresco/alfresco-content-repository-community
   pdfrenderer:
@@ -34,9 +31,6 @@ alfresco-content-services:
     searchServicesImage:
       repository: alfresco/alfresco-search-services
   activemq:
-    spec:
-      strategy:
-        type: Recreate
     strategy:
       type: Recreate
   # Disable features
