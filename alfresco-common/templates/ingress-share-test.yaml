@@ -4,22 +4,22 @@ metadata:
   name: {{ .Values.ing_name }}
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: HTTP  
-    # nginx.ingress.kubernetes.io/proxy-body-size: "5g"
-    # nginx.ingress.kubernetes.io/affinity: "cookie"
-    # nginx.ingress.kubernetes.io/session-cookie-name: "alfrescoShare"
-    # nginx.ingress.kubernetes.io/session-cookie-path: "/share"
-    # nginx.ingress.kubernetes.io/session-cookie-max-age: "604800"
-    # nginx.ingress.kubernetes.io/session-cookie-expires: "604800"
+    nginx.ingress.kubernetes.io/proxy-body-size: "5g"
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-name: "alfrescoShare"
+    nginx.ingress.kubernetes.io/session-cookie-path: "/share"
+    nginx.ingress.kubernetes.io/session-cookie-max-age: "604800"
+    nginx.ingress.kubernetes.io/session-cookie-expires: "604800"
 spec:
   ingressClassName: iap-nginx
   tls:
     - hosts:
-      - alfresco-test.napbiotec.io
+      - share.alfresco-test.napbiotec.io
   rules:
-    - host: alfresco-test.napbiotec.io
+    - host: share.alfresco-test.napbiotec.io
       http:
         paths:
-          - path: /
+          - path: /share
             pathType: Prefix
             backend:
               service:
