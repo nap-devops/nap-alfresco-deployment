@@ -4,8 +4,8 @@ alfresco-content-services:
     replicaCount: 1
     strategy:
       type: Recreate
-    #image:
-    #  repository: alfresco/alfresco-content-repository-community
+    image:
+      repository: alfresco/alfresco-content-repository-community
   pdfrenderer:
     replicaCount: 1
 
@@ -24,12 +24,12 @@ alfresco-content-services:
   share:
     replicaCount: 1
 
-    #image:
-    #  repository: alfresco/alfresco-share
+    image:
+      repository: alfresco/alfresco-share
 
   alfresco-search:
-    #searchServicesImage:
-    #  repository: alfresco/alfresco-search-services
+    searchServicesImage:
+      repository: alfresco/alfresco-search-services
   activemq:
     strategy:
       type: Recreate
