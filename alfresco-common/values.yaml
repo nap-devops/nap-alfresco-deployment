@@ -33,9 +33,9 @@ alfresco-content-services:
   activemq:
     strategy:
       type: Recreate
-      persistence:
-        enabled: true
-        existingClaim: active-mq-pvc
+    persistence:
+      enabled: true
+      existingClaim: active-mq-pvc
   # Disable features
   alfresco-digital-workspace:
     enabled: false
