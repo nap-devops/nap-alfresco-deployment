@@ -28,11 +28,6 @@ alfresco-content-services:
 
   share:
     replicaCount: 1
-    service:
-      name: share
-      type: ClusterIP
-      externalPort: 80
-
     image:
       repository: alfresco/alfresco-share
 
