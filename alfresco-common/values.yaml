@@ -31,11 +31,9 @@ alfresco-content-services:
     searchServicesImage:
       repository: alfresco/alfresco-search-services
   activemq:
+    enabled: true
     strategy:
       type: Recreate
-    persistence:
-      enabled: true
-      existingClaim: active-mq-pvc
   # Disable features
   alfresco-digital-workspace:
     enabled: false

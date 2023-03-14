@@ -1,0 +1,87 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: alfresco-dev-activemq
+  name: alfresco-dev-activemq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alfresco-dev-activemq
+      release: alfresco-dev
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: alfresco-dev-activemq
+        release: alfresco-dev
+    spec:
+      containers:
+      - env:
+        - name: ACTIVEMQ_CONFIG_MINMEMORY
+          value: "512"
+        - name: ACTIVEMQ_CONFIG_MAXMEMORY
+          value: "2048"
+        - name: ACTIVEMQ_BROKER_NAME
+          value: alfresco-dev-activemq
+        - name: ACTIVEMQ_ADMIN_LOGIN
+          value: admin
+        - name: ACTIVEMQ_ADMIN_PASSWORD
+          value: admin
+        image: alfresco/alfresco-activemq:5.17.1-jre11-rockylinux8
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 0
+        livenessProbe:
+          failureThreshold: 1
+          initialDelaySeconds: 130
+          periodSeconds: 20
+          successThreshold: 1
+          tcpSocket:
+            port: 61616
+          timeoutSeconds: 10
+        name: activemq
+        ports:
+        - containerPort: 61613
+          name: stomp
+          protocol: TCP
+        - containerPort: 61616
+          name: openwire
+          protocol: TCP
+        - containerPort: 5672
+          name: amqp
+          protocol: TCP
+        - containerPort: 8161
+          name: web-console
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 6
+          initialDelaySeconds: 60
+          periodSeconds: 20
+          successThreshold: 1
+          tcpSocket:
+            port: 61616
+          timeoutSeconds: 10
+        resources:
+          limits:
+            memory: 2Gi
+          requests:
+            memory: 512Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/activemq/data
+          name: data
+          subPath: alfresco-infrastructure/activemq-data
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: active-mq-pvc
