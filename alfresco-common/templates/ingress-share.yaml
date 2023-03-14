@@ -6,7 +6,7 @@ metadata:
     {{- include "share.labels" . | nindent 4 }}
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: HTTP  
-    nginx.ingress.kubernetes.io/proxy-body-size: {{ .Values.repository.ingress.maxUploadSize }}
+    nginx.ingress.kubernetes.io/proxy-body-size: "5g"
     nginx.ingress.kubernetes.io/affinity: "cookie"
     nginx.ingress.kubernetes.io/session-cookie-name: "alfrescoShare"
     nginx.ingress.kubernetes.io/session-cookie-path: "/share"
