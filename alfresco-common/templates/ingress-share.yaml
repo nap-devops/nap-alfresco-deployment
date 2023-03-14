@@ -1,9 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ template "content-services.shortname" . }}-share
-  labels:
-    {{- include "share.labels" . | nindent 4 }}
+  name: {{ .Values.ing_name }}
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: HTTP  
     nginx.ingress.kubernetes.io/proxy-body-size: "5g"

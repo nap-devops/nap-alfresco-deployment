@@ -1,16 +1,14 @@
-
 domain: alfresco-dev.napbiotec.io
-
+ing_name: alfresco-dev-share
 
 alfresco-content-services:
-
   global:
-  # A shared secret is now required in order to authenticate connections between solr and repo (typically: tracking)
+    # A shared secret is now required in order to authenticate connections between solr and repo (typically: tracking)
     tracking:
-    # -- Select how solr and repo authenticate to each other
-    # none: work only prior to acs 7.2 (and was the default)
-    # secret: use a shared secret (to specify using `tracking.sharedsecret`)
-    # https: to use mTLS auth (require appropriate certificate configuration)
+      # -- Select how solr and repo authenticate to each other
+      # none: work only prior to acs 7.2 (and was the default)
+      # secret: use a shared secret (to specify using `tracking.sharedsecret`)
+      # https: to use mTLS auth (require appropriate certificate configuration)
       auth: secret
-    # -- Shared secret to authenticate repo/solr traffic
+      # -- Shared secret to authenticate repo/solr traffic
       sharedsecret: 2a8f67b03d37e153eac515f60df2258fdc764b4d5f17625b
