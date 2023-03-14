@@ -1,9 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Values.ing_name }}
+  name: alfresco-test-ing
   annotations:
-    nginx.ingress.kubernetes.io/backend-protocol: HTTP  
+    nginx.ingress.kubernetes.io/backend-protocol: HTTP
     nginx.ingress.kubernetes.io/proxy-body-size: "5g"
     nginx.ingress.kubernetes.io/affinity: "cookie"
     nginx.ingress.kubernetes.io/session-cookie-name: "alfrescoShare"
@@ -11,10 +11,10 @@ metadata:
     nginx.ingress.kubernetes.io/session-cookie-max-age: "604800"
     nginx.ingress.kubernetes.io/session-cookie-expires: "604800"
 spec:
-  ingressClassName: iap-nginx
+  ingressClassName: nginx
   tls:
     - hosts:
-      - share.alfresco-test.napbiotec.io
+        - share.alfresco-test.napbiotec.io
   rules:
     - host: share.alfresco-test.napbiotec.io
       http:

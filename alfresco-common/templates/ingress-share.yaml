@@ -11,7 +11,7 @@ metadata:
     # nginx.ingress.kubernetes.io/session-cookie-max-age: "604800"
     # nginx.ingress.kubernetes.io/session-cookie-expires: "604800"
 spec:
-  ingressClassName: nginx
+  ingressClassName: iap-nginx
   tls:
     - hosts:
       - {{ .Values.domain }}
