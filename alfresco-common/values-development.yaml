@@ -1,4 +1,7 @@
 
+domain: alfresco-dev.napbiotec.io
+
+
 alfresco-content-services:
 
   global:
