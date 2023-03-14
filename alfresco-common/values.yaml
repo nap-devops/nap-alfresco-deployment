@@ -7,6 +7,10 @@ alfresco-content-services:
       type: Recreate
     image:
       repository: alfresco/alfresco-content-repository-community
+    persistence:
+      enabled: true
+      accessModes:
+        - ReadWriteOnce
   pdfrenderer:
     replicaCount: 1
 
@@ -36,6 +40,8 @@ alfresco-content-services:
     strategy:
       type: Recreate
   # Disable features
+  alfresco-admin-app:
+    enabled: false
   alfresco-digital-workspace:
     enabled: false
   alfresco-sync-service:
