@@ -19,7 +19,7 @@ spec:
     - host: {{ .Values.domain }}
       http:
         paths:
-          - path: /
+          - path: /share
             pathType: Prefix
             backend:
               service:
