@@ -10,7 +10,7 @@ metadata:
     nginx.ingress.kubernetes.io/session-cookie-path: "/share"
     nginx.ingress.kubernetes.io/session-cookie-max-age: "604800"
     nginx.ingress.kubernetes.io/session-cookie-expires: "604800"
-    nginx.ingress.kubernetes.io/rewrite-target: /share/$1
+    #nginx.ingress.kubernetes.io/rewrite-target: /share/$1
 spec:
   ingressClassName: iap-nginx
   rules:
@@ -22,7 +22,7 @@ spec:
             name: alfresco-{{ .Values.env }}-alfresco-cs-share
             port:
               number: 80
-        path: /(.*)
+        path: /share
         pathType: Prefix
   tls:
   - hosts:
