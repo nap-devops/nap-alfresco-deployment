@@ -12,17 +12,17 @@ metadata:
     nginx.ingress.kubernetes.io/session-cookie-expires: "604800"
 spec:
   ingressClassName: iap-nginx
-  tls:
-    - hosts:
-      - {{ .Values.domain }}
   rules:
-    - host: 
-      http:
-        paths:
-          - path: /share
-            pathType: Prefix
-            backend:
-              service:
-                name: alfresco-{{ .Values.env }}-alfresco-cs-share
-                port:
-                  number: 80
+  - host: {{ .Values.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: alfresco-{{ .Values.env }}-alfresco-cs-share
+            port:
+              number: 80
+        path: /share
+        pathType: Prefix
+  tls:
+  - hosts:
+    - {{ .Values.domain }}
