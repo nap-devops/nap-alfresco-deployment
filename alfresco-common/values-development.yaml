@@ -1,4 +1,4 @@
-domain: alfresco-dev.napbiotec.io
+domain: alfresco-dev.internal.napbiotec.io
 ing_name: alfresco-dev-share
 
 alfresco-content-services:
