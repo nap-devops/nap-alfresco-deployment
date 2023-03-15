@@ -15,12 +15,14 @@ alfresco-content-services:
       sharedsecret: 2a8f67b03d37e153eac515f60df2258fdc764b4d5f17625b
   share:
     ingress:
+      path: /notused
       tls:
         - secretName: notused-tls
           hosts:
             - notused.local
   repository:
     ingress:
+      path: /notused
       tls:
         - secretName: notused-tls
           hosts:
