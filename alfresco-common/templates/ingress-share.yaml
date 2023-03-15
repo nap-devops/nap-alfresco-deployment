@@ -23,6 +23,13 @@ spec:
               number: 80
         path: /share
         pathType: Prefix
+      - backend:
+          service:
+            name: alfresco-{{ .Values.env }}-alfresco-cs-share
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
   tls:
   - hosts:
     - {{ .Values.domain }}
