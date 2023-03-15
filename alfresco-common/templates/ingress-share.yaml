@@ -27,7 +27,8 @@ spec:
         paths:
           - path: /share
             pathType: Prefix
-        backend: {{- include "common.ingress.backend" (dict "serviceName" $serviceName "servicePort" $servicePort "context" $) | nindent 10 }}
-  {{- if .Values.share.ingress.hostName }}
-    host: {{ tpl .Values.share.ingress.hostName . }}
-  {{- end }}
+            backend:
+              service:
+                name: alfresco-dev-alfresco-cs-share
+                port:
+                  number: 80
