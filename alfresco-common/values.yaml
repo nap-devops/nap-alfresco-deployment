@@ -12,7 +12,12 @@ alfresco-content-services:
       accessModes:
         - ReadWriteOnce
     ingress:
-      enabled: false
+      path: /
+      maxUploadSize: "5g"
+      annotations: {}
+      tls: 
+        hosts:
+         - chart-example.local
   pdfrenderer:
     replicaCount: 1
 
