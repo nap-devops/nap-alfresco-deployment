@@ -18,9 +18,9 @@ alfresco-content-services:
   #     path: /share
   #     tls:
   #       host: alfresco-dev.internal.napbiotec.io
-  repository:
-    ingress:
-      maxUploadSize: "5g"
-    
+repository:
+  ingress:
+    maxUploadSize: "5g"
+
   #   ingress:
   #     hostName: alfresco-dev.internal.napbiotec.io
