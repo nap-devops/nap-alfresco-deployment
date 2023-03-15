@@ -1,28 +1,33 @@
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: {{ .Values.ing_name }}
-#   annotations:
-#     nginx.ingress.kubernetes.io/backend-protocol: HTTP  
-#     nginx.ingress.kubernetes.io/proxy-body-size: "5g"
-#     nginx.ingress.kubernetes.io/affinity: "cookie"
-#     nginx.ingress.kubernetes.io/session-cookie-name: "alfrescoShare"
-#     nginx.ingress.kubernetes.io/session-cookie-path: "/share"
-#     nginx.ingress.kubernetes.io/session-cookie-max-age: "604800"
-#     nginx.ingress.kubernetes.io/session-cookie-expires: "604800"
-# spec:
-#   ingressClassName: iap-nginx
-#   tls:
-#     - hosts:
-#       - {{ .Values.domain }}
-#   rules:
-#     - host: {{ .Values.domain }}
-#       http:
-#         paths:
-#           - path: /share
-#             pathType: Prefix
-#             backend:
-#               service:
-#                 name: alfresco-dev-alfresco-cs-share
-#                 port:
-#                   number: 80
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ template "content-services.shortname" . }}-share
+  labels:
+    {{- include "share.labels" . | nindent 4 }}
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: HTTP  
+    nginx.ingress.kubernetes.io/proxy-body-size: {{ .Values.repository.ingress.maxUploadSize }}
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-name: "alfrescoShare"
+    nginx.ingress.kubernetes.io/session-cookie-path: "/share"
+    nginx.ingress.kubernetes.io/session-cookie-max-age: "604800"
+    nginx.ingress.kubernetes.io/session-cookie-expires: "604800"
+    {{- include "ingress_annotations" .Values.share }}
+    {{- if ne .Values.share.ingress.hostName .Values.repository.ingress.hostName }}
+    {{- include "ingress_vhost_annotations" .Values.share }}
+    {{- end }}
+spec:
+  ingressClassName: iap-nginx
+  tls:
+    - hosts:
+      - {{ .Values.domain }}
+  rules:
+    - host: {{ .Values.domain }}
+      http:
+        paths:
+          - path: /share
+            pathType: Prefix
+        backend: {{- include "common.ingress.backend" (dict "serviceName" $serviceName "servicePort" $servicePort "context" $) | nindent 10 }}
+  {{- if .Values.share.ingress.hostName }}
+    host: {{ tpl .Values.share.ingress.hostName . }}
+  {{- end }}

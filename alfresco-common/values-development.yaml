@@ -18,3 +18,6 @@ alfresco-content-services:
       path: /share
       tls:
         host: alfresco-dev.internal.napbiotec.io
+  repository:
+    ingress:
+      hostName: alfresco-dev.internal.napbiotec.io
