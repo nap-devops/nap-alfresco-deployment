@@ -12,15 +12,15 @@ alfresco-content-services:
       auth: secret
       # -- Shared secret to authenticate repo/solr traffic
       sharedsecret: 2a8f67b03d37e153eac515f60df2258fdc764b4d5f17625b
-  # share:
-  #   ingress:
-  #     hostName: alfresco-dev.internal.napbiotec.io
-  #     path: /share
-  #     tls:
-  #       host: alfresco-dev.internal.napbiotec.io
+share:
+  ingress:
+    enabled: false
+    # hostName: alfresco-dev.internal.napbiotec.io
+    # tls:
+    #   host: alfresco-dev.internal.napbiotec.io
+
 repository:
   ingress:
     maxUploadSize: "5g"
-
-  #   ingress:
-  #     hostName: alfresco-dev.internal.napbiotec.io
+    enabled: false
+    # hostName: alfresco-dev.internal.napbiotec.io
