@@ -1,5 +1,6 @@
 domain: alfresco-dev.internal.napbiotec.io
-ing_name: alfresco-dev-share
+ing-name: alfresco-dev-share
+env: dev
 
 alfresco-content-services:
   global:
@@ -12,15 +13,15 @@ alfresco-content-services:
       auth: secret
       # -- Shared secret to authenticate repo/solr traffic
       sharedsecret: 2a8f67b03d37e153eac515f60df2258fdc764b4d5f17625b
-share:
-  ingress:
-    enabled: false
-    # hostName: alfresco-dev.internal.napbiotec.io
-    # tls:
-    #   host: alfresco-dev.internal.napbiotec.io
-
-repository:
-  ingress:
-    maxUploadSize: "5g"
-    enabled: false
-    # hostName: alfresco-dev.internal.napbiotec.io
+  share:
+    ingress:
+      tls:
+        - secretName: notused-tls
+          hosts:
+            - notused.local
+  repository:
+    ingress:
+      tls:
+        - secretName: notused-tls
+          hosts:
+            - notused.local

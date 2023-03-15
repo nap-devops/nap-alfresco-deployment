@@ -1,31 +1,28 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ template "content-services.shortname" . }}-share
-  labels:
-    {{- include "share.labels" . | nindent 4 }}
+  name: alfresco-share-ing
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: HTTP  
-    nginx.ingress.kubernetes.io/proxy-body-size: {{ .Values.repository.ingress.maxUploadSize }}
+    nginx.ingress.kubernetes.io/proxy-body-size: "5g"
     nginx.ingress.kubernetes.io/affinity: "cookie"
     nginx.ingress.kubernetes.io/session-cookie-name: "alfrescoShare"
     nginx.ingress.kubernetes.io/session-cookie-path: "/share"
     nginx.ingress.kubernetes.io/session-cookie-max-age: "604800"
     nginx.ingress.kubernetes.io/session-cookie-expires: "604800"
-
 spec:
   ingressClassName: iap-nginx
   tls:
     - hosts:
       - {{ .Values.domain }}
   rules:
-    - host: {{ .Values.domain }}
+    - host: 
       http:
         paths:
           - path: /share
             pathType: Prefix
             backend:
               service:
-                name: alfresco-dev-alfresco-cs-share
+                name: alfresco-{{ .Values.env }}-alfresco-cs-share
                 port:
                   number: 80
