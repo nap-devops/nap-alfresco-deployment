@@ -11,6 +11,8 @@ alfresco-content-services:
       enabled: true
       accessModes:
         - ReadWriteOnce
+    ingress:
+      enabled: false
   pdfrenderer:
     replicaCount: 1
 
@@ -30,6 +32,8 @@ alfresco-content-services:
     replicaCount: 1
     image:
       repository: alfresco/alfresco-share
+    ingress:
+      enabled: false
 
   alfresco-search:
     searchServicesImage:
