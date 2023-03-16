@@ -31,7 +31,6 @@ alfresco-content-services:
     replicaCount: 1
     image:
       repository: alfresco/alfresco-share
-<<<<<<< HEAD
     command: |
       - "bash"
       - "-c"
@@ -45,15 +44,6 @@ alfresco-content-services:
         configMap:
           name: start-script-cm
 
-=======
-    extraInitContainers: |
-      - name: init-people-list
-        image: "busybox:1.35.0"
-        imagePullPolicy: IfNotPresent
-        securityContext:
-          privileged: true
-        command: ['sed', '-i', 's#<show-authorization-status>true</show-authorization-status>#<show-authorization-status>false</show-authorization-status> /usr/local/tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml']
->>>>>>> ed8daacdeba62cd31f8ba535a38fc0813dcc037f
   alfresco-search:
     searchServicesImage:
       repository: alfresco/alfresco-search-services
