@@ -32,8 +32,10 @@ alfresco-content-services:
     image:
       repository: alfresco/alfresco-share
     extraInitContainers:
-      command: ["sed", "-i", "'s/\(<show-authorization-status>\)true\(<\/show-authorization-status\)/\1false\2/' /usr/local/tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml"]
-#  sed -i 's/\(<show-authorization-status>\)true\(<\/show-authorization-status\)/\1false\2/' /usr/local/tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml
+      - name: init-people-list
+        image: "busybox:1.35.0"
+        imagePullPolicy: IfNotPresent
+        command: ['sed', '-i', 's#<show-authorization-status>true</show-authorization-status>#<show-authorization-status>false</show-authorization-status> /usr/local/tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml']
   alfresco-search:
     searchServicesImage:
       repository: alfresco/alfresco-search-services
