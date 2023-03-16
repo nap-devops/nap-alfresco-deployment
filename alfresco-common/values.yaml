@@ -43,6 +43,7 @@ alfresco-content-services:
       - name: scripts
         configMap:
           name: start-script-cm
+          defaultMode: 0744
 
   alfresco-search:
     searchServicesImage:
