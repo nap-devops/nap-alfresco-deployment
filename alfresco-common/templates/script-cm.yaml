@@ -12,7 +12,7 @@ data:
 
     ls -lrt ${DIR}
     echo "######"
-    cat ${DIR}/web-extension/share-config-custom.xml
+    cat ${DIR}/web-extension/share-config-custom.xml | grep show-authorization-status
     echo "######"
 
-    ${DIR}/substituter.sh catalina.sh run
+    ${DIR}/substituter.sh "catalina.sh run"
