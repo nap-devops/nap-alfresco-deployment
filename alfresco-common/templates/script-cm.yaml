@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: start-script-cm
+data:
+  run.bash: |
+    #!/bin/bash
+
+    DIR=/usr/local/tomcat/shared/classes/alfresco
+
+    sed -i 's/\(<show-authorization-status>\)true\(<\/show-authorization-status\)/\1false\2/' ${DIR}/web-extension/share-config-custom.xml
+
+    ls -lrt ${DIR}
+    echo "######"
+    cat ${DIR}/web-extension/share-config-custom.xml
+    echo "######"
+
+    ${DIR}/substituter.sh catalina.sh run

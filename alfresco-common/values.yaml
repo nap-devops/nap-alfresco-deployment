@@ -31,9 +31,19 @@ alfresco-content-services:
     replicaCount: 1
     image:
       repository: alfresco/alfresco-share
-    extraInitContainers:
-      command: ["sed", "-i", "'s/\(<show-authorization-status>\)true\(<\/show-authorization-status\)/\1false\2/' /usr/local/tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml"]
-#  sed -i 's/\(<show-authorization-status>\)true\(<\/show-authorization-status\)/\1false\2/' /usr/local/tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml
+    command: |
+      - "bash"
+      - "-c"
+      - "/scripts/run.bash"
+    extraVolumeMounts:
+      - name: scripts
+        mountPath: /scripts
+        readOnly: true
+    extraVolumes:
+      - name: scripts
+        configMap:
+          name: start-script-cm
+
   alfresco-search:
     searchServicesImage:
       repository: alfresco/alfresco-search-services
