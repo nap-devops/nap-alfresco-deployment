@@ -28,9 +28,9 @@ alfresco-content-services:
           hosts:
             - notused.local
     existingSecretName: alfresco-dev-secret
-  s3connector:
-    enabled: true
-    config:
-      bucketName: "acs-content-dev" 
-      bucketLocation: "ASIA-SOUTHEAST1" 
-    existingSecretName: alfresco-dev-secret
+  # s3connector:
+  #   enabled: true
+  #   config:
+  #     bucketName: "acs-content-dev" 
+  #     bucketLocation: "ASIA-SOUTHEAST1" 
+  #   existingSecretName: alfresco-dev-secret
