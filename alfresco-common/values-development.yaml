@@ -20,8 +20,6 @@ alfresco-content-services:
         - secretName: notused-tls
           hosts:
             - notused.local
-  alfresco-search:
-    enabled: false 
   repository:
     ingress:
       path: /notused
