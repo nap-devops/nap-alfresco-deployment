@@ -48,6 +48,8 @@ alfresco-content-services:
   alfresco-search:
     searchServicesImage:
       repository: alfresco/alfresco-search-services
+    limits:
+      cpu: "2"
   activemq:
     enabled: true
     strategy:
