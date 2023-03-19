@@ -21,12 +21,12 @@ alfresco-content-services:
           hosts:
             - notused.local
   repository:
-    # ingress:
-    #   path: /notused
-    #   tls:
-    #     - secretName: notused-tls
-    #       hosts:
-    #         - notused.local
+    ingress:
+      path: /notused
+      tls:
+        - secretName: notused-tls
+          hosts:
+            - notused.local
     existingSecretName: alfresco-dev-repo-secret
   # s3connector:
   #   enabled: true
