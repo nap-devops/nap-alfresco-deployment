@@ -1,14 +1,14 @@
 apiVersion: external-secrets.io/v1alpha1
 kind: ExternalSecret
 metadata:
-  name: alfresco-dev-secret
+  name: alfresco-dev-s3-secret
 spec:
   refreshInterval: 1h          # rate SecretManager pulls GCPSM
   secretStoreRef:
     kind: ClusterSecretStore
     name: gcp-secret-store     # name of the SecretStore (or kind specified)
   target:
-    name: alfresco-dev-secret # name of the k8s Secret to be created
+    name: alfresco-dev-s3-secret # name of the k8s Secret to be created
     creationPolicy: Owner
   data:
     - secretKey: "ACCESSKEY"
@@ -23,9 +23,4 @@ spec:
         version: latest
         property: SECRETKEY
 
-    - secretKey: "REPO_ADMIN_PASSWORD"
-      remoteRef:
-        key: nap-alfresco-dev-secret
-        version: latest
-        property: REPO_ADMIN_PASSWORD
 
