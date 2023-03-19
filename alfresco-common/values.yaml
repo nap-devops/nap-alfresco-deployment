@@ -31,19 +31,19 @@ alfresco-content-services:
     replicaCount: 1
     image:
       repository: alfresco/alfresco-share
-    # command: |
-    #   - "bash"
-    #   - "-c"
-    #   - "/scripts/run.bash"
-    # extraVolumeMounts:
-    #   - name: scripts
-    #     mountPath: /scripts
-    #     readOnly: true
-    # extraVolumes:
-    #   - name: scripts
-    #     configMap:
-    #       name: start-script-cm
-    #       defaultMode: 0744
+    command: |
+      - "bash"
+      - "-c"
+      - "/scripts/run.bash"
+    extraVolumeMounts:
+      - name: scripts
+        mountPath: /scripts
+        readOnly: true
+    extraVolumes:
+      - name: scripts
+        configMap:
+          name: start-script-cm
+          defaultMode: 0744
 
   alfresco-search:
     searchServicesImage:
