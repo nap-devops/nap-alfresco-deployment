@@ -7,10 +7,10 @@ alfresco-content-services:
       type: Recreate
     image:
       repository: alfresco/alfresco-content-repository-community
-    # persistence:
-    #   enabled: true
-    #   accessModes:
-    #     - ReadWriteOnce
+    persistence:
+      enabled: true
+      accessModes:
+        - ReadWriteOnce
 
   pdfrenderer:
     replicaCount: 1
