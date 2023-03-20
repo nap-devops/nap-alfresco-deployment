@@ -7,10 +7,10 @@ alfresco-content-services:
       type: Recreate
     image:
       repository: alfresco/alfresco-content-repository-community
-    persistence:
-      enabled: true
-      accessModes:
-        - ReadWriteOnce
+    # persistence:
+    #   enabled: true
+    #   accessModes:
+    #     - ReadWriteOnce
 
   pdfrenderer:
     replicaCount: 1
@@ -65,7 +65,7 @@ alfresco-content-services:
   ai:
     enabled: false
   s3connector:
-    enabled: false
+    enabled: true
   email:
     server:
       enabled: false
