@@ -1,5 +1,5 @@
 alfresco-content-services:
-  enabled: true
+  enabled: false
   repository:
     edition: Community
     replicaCount: 1
