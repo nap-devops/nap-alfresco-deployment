@@ -28,11 +28,10 @@ alfresco-content-services:
           hosts:
             - notused.local
     existingSecretName: alfresco-dev-repo-secret
-  s3connector:
-    enabled: true
-    config:
-      bucketName: "acs-content-dev" 
-      bucketLocation: "ASIA-SOUTHEAST1" 
-      endpoint: "https://storage.googleapis.com"
-    existingSecretName: alfresco-dev-s3-secret
+  # s3connector:
+  #   enabled: true
+  #   config:
+  #     bucketName: "acs-content-dev" 
+  #     bucketLocation: "ASIA-SOUTHEAST1" 
+  #   existingSecretName: alfresco-dev-s3-secret
   
