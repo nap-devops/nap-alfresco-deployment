@@ -1,5 +1,5 @@
 alfresco-content-services:
-  enabled: true
+  enabled: false
   repository:
     edition: Community
     replicaCount: 1
@@ -65,7 +65,7 @@ alfresco-content-services:
   ai:
     enabled: false
   s3connector:
-    enabled: true
+    enabled: false
   email:
     server:
       enabled: false
