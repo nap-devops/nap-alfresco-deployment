@@ -6,11 +6,11 @@ alfresco-content-services:
   mail:
     host: smtp.gmail.com
     port: 465
-    username: alfresco@napbiotec.io
+    username: webmaster@napbiotec.io
     password: not-used-but-allow-for-specific-ip
     protocol: smtps
     smtps:
-      auth: false
+      auth: true
       starttls:
         enable: true
   global:
