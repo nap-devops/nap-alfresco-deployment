@@ -15,4 +15,4 @@ spec:
       remoteRef:
         key: nap-alfresco-dev-secret
         version: latest
-        property: REPO_ADMIN_PASSWORD # TODO : Change this to mach MAIL_PASSWORD
+        property: MAIL_PASSWORD # TODO : Change this to mach MAIL_PASSWORD
