@@ -3,6 +3,16 @@ ing-name: alfresco-dev-share
 env: dev
 
 alfresco-content-services:
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: alfresco@napbiotec.io
+    password: not-used-but-allow-for-specific-ip
+    protocol: smtps
+    smtps:
+      auth: false
+      starttls:
+        enable: true
   global:
     # A shared secret is now required in order to authenticate connections between solr and repo (typically: tracking)
     tracking:
@@ -20,16 +30,6 @@ alfresco-content-services:
         - secretName: notused-tls
           hosts:
             - notused.local
-    environment:
-      # smtp-relay.gmail.com
-      JAVA_OPTS: >-
-        -Dmail.host=smtp.gmail.com
-        -Dmail.port=465
-        -Dmail.username=alfresco@napbiotec.io
-        -Dmail.password=not-used-but-allow-for-specific-ip
-        -Dmail.protocol=smtps
-        -Dmail.smtps.starttls.enable=true
-        -Dmail.smtps.auth=false
   repository:
     ingress:
       path: /notused
