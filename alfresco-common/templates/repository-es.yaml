@@ -17,3 +17,4 @@ spec:
         version: latest
         property: REPO_ADMIN_PASSWORD
 
+# password using NTLM hash format
