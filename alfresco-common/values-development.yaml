@@ -8,6 +8,7 @@ alfresco-content-services:
     port: 465
     username: webmaster@napbiotec.io
     password: not-used-but-allow-for-specific-ip
+    existingSecretName: mail-secret
     protocol: smtps
     smtps:
       auth: true
