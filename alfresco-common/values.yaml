@@ -54,7 +54,7 @@ alfresco-content-services:
       type: Recreate
   # Disable features
   alfresco-admin-app:
-    enabled: false
+    enabled: true
   alfresco-digital-workspace:
     enabled: false
   alfresco-sync-service:
