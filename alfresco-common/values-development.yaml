@@ -20,6 +20,16 @@ alfresco-content-services:
         - secretName: notused-tls
           hosts:
             - notused.local
+    environment:
+      # smtp-relay.gmail.com
+      JAVA_OPTS: >-
+        -Dmail.host=smtp.gmail.com
+        -Dmail.port=465
+        -Dmail.username=alfresco@napbiotec.io
+        -Dmail.password=not-used-but-allow-for-specific-ip
+        -Dmail.protocol=smtps
+        -Dmail.smtps.starttls.enable=true
+        -Dmail.smtps.auth=false
   repository:
     ingress:
       path: /notused
